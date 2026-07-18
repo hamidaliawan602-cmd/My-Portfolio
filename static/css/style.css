@@ -253,14 +253,11 @@ html.light .theme-toggle-thumb .ic-sun { display: block; }
 .hero-frame-inner img {
     position: absolute;
     inset: 0;
-
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-    object-position: top center;
-
-    transition: transform .9s cubic-bezier(.4,0,.2,1);
+    object-position: center top;
+    display: block;
 }
 
 .hero-frame:hover .hero-frame-inner img {

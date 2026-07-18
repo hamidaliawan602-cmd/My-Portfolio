@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
   <!-- Background blobs -->
@@ -72,7 +72,7 @@
           I build solutions where data meets clean architecture.
         </p>
         <div class="hero-actions">
-          <a href="#" download class="btn-glow">
+          <a href="{{ url_for('static', filename='cv/cv offical.pdf') }}" download class="btn-glow">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
             Download CV
           </a>
@@ -92,7 +92,7 @@
         <div class="hero-orbit"></div>
         <div class="hero-frame">
           <div class="hero-frame-inner">
-             <img src="{{ url_for('static', filename='img/1.png') }}" alt="Hamid Ali Awan working" />
+        <img src="{{ url_for('static', filename='images/1.png') }}" alt="Hamid Ali Awan working">
             <div class="hero-fade"></div>
           </div>
         </div>
@@ -117,7 +117,7 @@
             <span class="about-dot b"></span>
             <div class="about-frame-shape">
               <div class="about-frame-inner">
-                <img src="{{ url_for('static', filename='img/about.jpg') }}" alt="Hamid Ali Awan working" />
+               <img src="{{ url_for('static', filename='images/IMG-20240627-WA0002.jpg') }}" alt="Hamid Ali Awan working" />
               </div>
             </div>
             <div class="about-badge bl">
@@ -143,9 +143,10 @@
           <div class="glass card mt-6">
             <h3 class="h3">Core Stack</h3>
             <div class="chips">
-              <span class="chip">Python</span><span class="chip">Flask</span><span class="chip">TensorFlow</span>
+              <span class="chip">AI</span>
+              <span class="chip">Python</span><span class="chip">TensorFlow</span>
               <span class="chip">PyTorch</span><span class="chip">scikit-learn</span><span class="chip">SQL</span>
-              <span class="chip">REST APIs</span><span class="chip">JavaScript</span><span class="chip">HTML/CSS</span><span class="chip">Git</span>
+              <span class="chip">REST APIs</span><span class="chip">HTML/CSS</span><span class="chip">JavaScript</span><span class="chip">Flask</span><span class="chip">Git</span><span class="chip">GitHub</span>
             </div>
           </div>
         </div>
@@ -268,11 +269,11 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-     <p class="muted xs">©  2026 Hamid Ali Awan. All rights reserved</p>
+     <p class="muted xs"><span class="gradient-text animated">©  2026 Hamid Ali Awan. All rights reserved</span></p>
      
   </footer>
 
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
 
