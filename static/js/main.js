@@ -1,87 +1,119 @@
-// Navbar scroll effect
-const navbar = document.querySelector('.navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
-});
+// ==================================================
+// Hamid Ali Awan — Portfolio (Vanilla JS)
+// ==================================================
 
-// Hamburger menu
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-  hamburger.classList.toggle('open');
-});
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => navLinks.classList.remove('active'));
-});
+// ---------- Typing effect ----------
+(function () {
+  const el = document.getElementById("typed");
+  if (!el) return;
+  const phrases = ["Machine Learning Specialist", "Backend Developer"];
+  let pi = 0, ci = 0, deleting = false;
+  function tick() {
+    const phrase = phrases[pi];
+    if (!deleting) {
+      ci++;
+      el.textContent = phrase.slice(0, ci);
+      if (ci === phrase.length) { deleting = true; return setTimeout(tick, 1600); }
+    } else {
+      ci--;
+      el.textContent = phrase.slice(0, ci);
+      if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+    }
+    setTimeout(tick, deleting ? 40 : 75);
+  }
+  setTimeout(tick, 300);
+})();
 
-// Active nav link on scroll
-const sections = document.querySelectorAll('section[id]');
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY + 100;
-  sections.forEach(sec => {
-    const top = sec.offsetTop - 100;
-    const height = sec.offsetHeight;
-    const id = sec.getAttribute('id');
-    const link = document.querySelector(`.nav-links a[href="#${id}"]`);
-    if (link) {
-      if (scrollY >= top && scrollY < top + height) {
-        document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-        link.classList.add('active');
+// ---------- Scroll reveal ----------
+(function () {
+  const els = document.querySelectorAll(".reveal");
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add("in");
+        io.unobserve(e.target);
       }
+    });
+  }, { threshold: 0.12 });
+  els.forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 6) * 90}ms`;
+    io.observe(el);
+  });
+})();
+
+// ---------- Nav scroll state ----------
+(function () {
+  const nav = document.getElementById("nav");
+  if (!nav) return;
+  const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 20);
+  window.addEventListener("scroll", onScroll);
+  onScroll();
+})();
+
+// ---------- Mobile menu ----------
+(function () {
+  const btn = document.getElementById("menuBtn");
+  const menu = document.getElementById("mobileMenu");
+  if (!btn || !menu) return;
+  btn.addEventListener("click", () => menu.classList.toggle("open"));
+  menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => menu.classList.remove("open")));
+})();
+
+// ---------- Theme toggle ----------
+(function () {
+  const root = document.documentElement;
+  const btn = document.getElementById("themeToggle");
+  const thumb = document.getElementById("themeThumb");
+  if (!btn) return;
+
+  const saved = localStorage.getItem("theme");
+  const initial = saved === "light" ? "light" : "dark";
+  applyTheme(initial);
+
+  btn.addEventListener("click", () => {
+    const next = root.classList.contains("dark") ? "light" : "dark";
+    applyTheme(next);
+    localStorage.setItem("theme", next);
+  });
+
+  function applyTheme(t) {
+    root.classList.remove("dark", "light");
+    root.classList.add(t);
+    if (thumb) {
+      thumb.classList.toggle("left", t === "dark");
+      thumb.classList.toggle("right", t === "light");
+    }
+  }
+})();
+
+// ---------- Contact form ----------
+(function () {
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("formStatus");
+  if (!form) return;
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    status.className = "form-status";
+    status.textContent = "Sending...";
+    const data = Object.fromEntries(new FormData(form).entries());
+    try {
+      const res = await fetch("/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (res.ok && json.ok) {
+        status.className = "form-status ok";
+        status.textContent = json.message || "Message sent!";
+        form.reset();
+      } else {
+        status.className = "form-status err";
+        status.textContent = json.error || "Something went wrong.";
+      }
+    } catch (err) {
+      status.className = "form-status err";
+      status.textContent = "Network error. Please try again.";
     }
   });
-});
-
-// Typing effect
-const typed = document.querySelector('.typed');
-const words = ['ML Engineer', 'Web Developer', 'Python Developer', 'Problem Solver'];
-let wordIndex = 0, charIndex = 0, isDeleting = false;
-function typeEffect() {
-  const current = words[wordIndex];
-  typed.textContent = isDeleting ? current.substring(0, charIndex--) : current.substring(0, charIndex++);
-  if (!isDeleting && charIndex > current.length) {
-    setTimeout(() => { isDeleting = true; typeEffect(); }, 1800);
-    return;
-  }
-  if (isDeleting && charIndex < 0) {
-    isDeleting = false;
-    wordIndex = (wordIndex + 1) % words.length;
-  }
-  setTimeout(typeEffect, isDeleting ? 40 : 100);
-}
-typeEffect();
-
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.15 });
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-// Contact form
-document.getElementById('contactForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const status = document.getElementById('formStatus');
-  const formData = {
-    name: e.target.name.value,
-    email: e.target.email.value,
-    subject: e.target.subject.value,
-    message: e.target.message.value
-  };
-  try {
-    const res = await fetch('/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    });
-    const data = await res.json();
-    status.textContent = data.message;
-    status.className = 'form-status success';
-    e.target.reset();
-  } catch (err) {
-    status.textContent = 'Something went wrong. Please try again.';
-    status.className = 'form-status error';
-  }
-});
+})();

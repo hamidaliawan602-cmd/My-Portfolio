@@ -1,260 +1,264 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hamid Ali Awan | Software Engineer & ML Specialist</title>
-  <meta name="description" content="Portfolio of Hamid Ali Awan — BS Software Engineering graduate specializing in Machine Learning and Full-Stack Web Development.">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hamid Ali Awan — ML Specialist & Website Developer</title>
+  <meta name="description" content="Portfolio of Hamid Ali Awan, BS Software Engineering graduate specializing in Machine Learning and Backend Development." />
+  <meta name="author" content="Hamid Ali Awan" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 </head>
 <body>
+  <!-- Background blobs -->
+  <div class="bg-blobs" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="#home" class="logo"><span>HamidAliAwan</span></a>
-      <ul class="nav-links">
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+  <!-- Nav -->
+  <nav id="nav" class="glass-nav">
+    <div class="nav-inner">
+      <a href="#home" class="brand"><span class="gradient-text animated">HamidAliAwan</span><span class="dot">.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
-      <div class="hamburger">
-        <span></span><span></span><span></span>
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+          <span class="theme-toggle-thumb left" id="themeThumb">
+            <svg class="ic-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="ic-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          </span>
+          <span class="theme-toggle-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
+          <span class="theme-toggle-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+        </button>
+        <a href="#contact" class="btn-glow hire-btn">Hire Me</a>
+        <button id="menuBtn" class="menu-btn" aria-label="Menu">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
       </div>
+    </div>
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-container">
-      <div class="hero-text">
-        <p class="hero-greeting">Hello, I'm</p>
-        <h1 class="hero-name">Hamid Ali Awan</h1>
-        <h2 class="hero-title">I'm a <span class="typed">ML Engineer</span></h2>
-        <p class="hero-desc">
-          A passionate BS Software Engineering graduate specializing in Machine Learning and Full-Stack Web Development. I build intelligent solutions and beautiful web experiences.
+  <!-- Hero -->
+  <section id="home" class="section hero">
+    <div class="container hero-grid">
+      <div class="hero-copy reveal">
+        <span class="pill">
+          <span class="pill-dot"></span> HELLO , I'M
+        </span>
+        <h1 class="display">Hamid Ali <span class="gradient-text animated">Awan</span></h1>
+        <div class="type-line">
+          <span id="typed" class="typed"></span><span class="cursor-blink">|</span>
+        </div>
+        <p class="lede">
+          BS Software Engineering graduate crafting intelligent systems and robust backends.
+          I build solutions where data meets clean architecture.
         </p>
-        <div class="hero-btns">
-          <a href="{{ url_for('static', filename='cv/cv offical.pdf') }}" class="btn btn-primary">
-            <i class="fas fa-download"></i> Download CV
+        <div class="hero-actions">
+          <a href="#" download class="btn-glow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+            Download CV
           </a>
-          <a href="#contact" class="btn btn-outline">
-            <i class="fas fa-paper-plane"></i> Let's Talk
-          </a>
-        </div>
-        <div class="social-links">
-          <!-- EDIT THESE LINKS with your actual profile URLs -->
-          <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://github.com/your-profile" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://twitter.com/your-profile" target="_blank" rel="noopener" title="Twitter"><i class="fab fa-x-twitter"></i></a>
-          <a href="https://instagram.com/your-profile" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://facebook.com/your-profile" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#projects" class="btn-ghost">View Work</a>
+         <div> <div class="socials">
+            <a href="https://www.linkedin.com/in/hamid-ali-awan-6510203a8?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+            </a>
+            <a href="https://github.com/hamidaliawan602-cmd" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.04 11.04 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+            </a>
+          </div>
+          </div>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="hero-img-wrapper">
-          <img src="{{ url_for('static', filename='uploads/best.jpg') }}" alt="Hamid Ali Awan">
+      <div class="hero-image reveal">
+        <div class="hero-orbit"></div>
+        <div class="hero-frame">
+          <div class="hero-frame-inner">
+             <img src="{{ url_for('static', filename='img/1.png') }}" alt="Hamid Ali Awan working" />
+            <div class="hero-fade"></div>
+          </div>
         </div>
-        <div class="hero-img-glow"></div>
+        <div class="hero-badge tl"><span class="pill-dot"></span><strong>Open to Work</strong></div>
+        <div class="hero-badge br"><div class="muted xs">Based in</div><strong>Pakistan</strong></div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-header fade-up">
-      <p class="section-tag">Who I Am</p>
-      <h2 class="section-title">About <span>Me</span></h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="about-container">
-      <div class="about-left fade-up">
-        <div class="about-card">
-          <div class="about-avatar">
-            <img src="{{ url_for('static', filename='uploads/best2.jpg') }}" alt="Hamid Ali Awan">
-          </div>
-          <h3>Hamid Ali Awan</h3>
-          <p>Software Engineer</p>
-          <div class="about-stats">
-            <div class="stat-item">
-              <div class="stat-num">BS</div>
-              <div class="stat-label">Degree</div>
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">About Me</p>
+        <h2 class="h2">Engineer. Builder. Problem-Solver.</h2>
+      </div>
+      <div class="about-grid">
+        <div class="reveal">
+          <div class="about-frame">
+            <div class="about-ring"></div>
+            <span class="about-dot a"></span>
+            <span class="about-dot b"></span>
+            <div class="about-frame-shape">
+              <div class="about-frame-inner">
+                <img src="{{ url_for('static', filename='img/about.jpg') }}" alt="Hamid Ali Awan working" />
+              </div>
             </div>
-            <div class="stat-item">
-              <div class="stat-num">ML</div>
-              <div class="stat-label">Specialty</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-num">WEB</div>
-              <div class="stat-label">Development</div>
+            <div class="about-badge bl">
+              <div class="h3-num gradient-text">3+</div>
+              <div class="muted xs upper">Years Coding</div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="about-right fade-up">
-        <h3>Software Engineer & ML Enthusiast</h3>
-        <p>
-          I'm a recent graduate with a BS in Software Engineering, driven by a deep passion for building intelligent systems and scalable web applications. My expertise spans Machine Learning with Python and full-stack web development using modern frameworks.
-        </p>
-        <p>
-          I thrive on solving complex problems, whether it's training predictive models, designing RESTful APIs with Flask, or crafting responsive user interfaces. I'm constantly learning and eager to contribute to impactful projects.
-        </p>
-        <div class="tech-tags">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">Machine Learning</span>
-          <span class="tech-tag">TensorFlow</span>
-          <span class="tech-tag">Scikit-learn</span>
-          <span class="tech-tag">Flask</span>
-          <span class="tech-tag">HTML / CSS</span>
-          <span class="tech-tag">JavaScript</span>
-          <span class="tech-tag">SQL</span>
-          <span class="tech-tag">Git</span>
-          <span class="tech-tag">REST APIs</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="section-header fade-up">
-      <p class="section-tag">What I Do</p>
-      <h2 class="section-title">My <span>Services</span></h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="services-grid">
-      <div class="service-card fade-up">
-        <div class="service-icon"><i class="fas fa-brain"></i></div>
-        <h3>Machine Learning</h3>
-        <p>Building predictive models, data pipelines, and intelligent systems using Python, TensorFlow, Scikit-learn, and Pandas for real-world problem solving.</p>
-      </div>
-      <div class="service-card fade-up">
-        <div class="service-icon"><i class="fas fa-code"></i></div>
-        <h3>Web Development</h3>
-        <p>Creating responsive, modern websites and web applications using HTML, CSS, JavaScript on the frontend and Python Flask on the backend.</p>
-      </div>
-      <div class="service-card fade-up">
-        <div class="service-icon"><i class="fas fa-server"></i></div>
-        <h3>Backend & APIs</h3>
-        <p>Designing and developing robust RESTful APIs, database integrations, and server-side logic with Flask and SQL databases.</p>
-      </div>
-      <div class="service-card fade-up">
-        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>Data Analysis</h3>
-        <p>Extracting insights from data using Python libraries like Pandas, NumPy, and Matplotlib to drive data-informed decisions.</p>
-      </div>
-      <div class="service-card fade-up">
-        <div class="service-icon"><i class="fas fa-database"></i></div>
-        <h3>Database Design</h3>
-        <p>Designing efficient database schemas, writing optimized queries, and managing data with SQL and NoSQL databases.</p>
-      </div>
-      <div class="service-card fade-up">
-        <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
-        <h3>Problem Solving</h3>
-        <p>Tackling complex technical challenges with clean, efficient algorithms and a strong foundation in software engineering principles.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="section-header fade-up">
-      <p class="section-tag">My Work</p>
-      <h2 class="section-title">Recent <span>Projects</span></h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="projects-grid">
-      <div class="project-card fade-up">
-        <div class="project-thumb"><img src="{{ url_for('static', filename='uploads/hello.jpg') }}" alt="Hamid Ali Awan"></div>
-        <div class="project-info">
-          <h3>AwanGroup's Institute</h3>
-          <p>Empowering students with cutting-edge technology skills for a brighter future.</p>
-          <div class="project-tags">
-            <span class="project-tag">Python</span>
-            <span class="project-tag">Flask</span>
+        <div class="reveal">
+          <div class="glass card">
+            <p class="lead">
+              I'm <strong>Hamid Ali Awan</strong>, a <span class="electric">BS Software Engineering</span> graduate with a passion for building intelligent, scalable software. My academic foundation in computing fuels my ability to design clean architectures and develop production-grade backends.
+            </p>
+            <p class="muted mt">
+              I specialize in Machine Learning with Python and backend development with Flask, blending algorithmic thinking with pragmatic engineering.
+            </p>
+            <div class="stats">
+              <div><div class="stat-num">BS</div><div class="muted xs">Software Eng.</div></div>
+              <div><div class="stat-num">10+</div><div class="muted xs">Projects Built</div></div>
+              <div><div class="stat-num">100%</div><div class="muted xs">Committed</div></div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="project-card fade-up">
-        <div class="project-thumb">🚀 Coming Soon</div>
-        <div class="project-info">
-          <h3>Project Title</h3>
-          <p>Project description goes here. Add details about the problem solved and technologies used.</p>
-          <div class="project-tags">
-            <span class="project-tag">ML</span>
-            <span class="project-tag">TensorFlow</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-card fade-up">
-        <div class="project-thumb">🚀 Coming Soon</div>
-        <div class="project-info">
-          <h3>Project Title</h3>
-          <p>Project description goes here. Add details about the problem solved and technologies used.</p>
-          <div class="project-tags">
-            <span class="project-tag">HTML/CSS</span>
-            <span class="project-tag">JavaScript</span>
+          <div class="glass card mt-6">
+            <h3 class="h3">Core Stack</h3>
+            <div class="chips">
+              <span class="chip">Python</span><span class="chip">Flask</span><span class="chip">TensorFlow</span>
+              <span class="chip">PyTorch</span><span class="chip">scikit-learn</span><span class="chip">SQL</span>
+              <span class="chip">REST APIs</span><span class="chip">JavaScript</span><span class="chip">HTML/CSS</span><span class="chip">Git</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-header fade-up">
-      <p class="section-tag">Get In Touch</p>
-      <h2 class="section-title">Contact <span>Me</span></h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="contact-container">
-      <div class="contact-info-card fade-up">
-        <h3>Let's work together</h3>
-        <p>Feel free to reach out for collaborations, freelance work, or just a friendly hello!</p>
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-          <div class="contact-item-text">
-            <span>Email</span>
-            <!-- EDIT: Replace with your email -->
-            <p>HamidAliAwan@gmail.com</p>
-          </div>
+  <!-- Services -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Services</p>
+        <h2 class="h2">What I Do Best</h2>
+      </div>
+      <div class="grid-3">
+        <div class="service-card reveal">
+          <div class="icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/></svg></div>
+          <h3 class="h3 mt">Machine Learning</h3>
+          <p class="muted xs">Python · TensorFlow · PyTorch</p>
+          <p class="mt">Designing and training models for prediction, classification, and computer vision. From data pipelines to deployment.</p>
         </div>
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fas fa-phone"></i></div>
-          <div class="contact-item-text">
-            <span>Phone</span>
-            <!-- EDIT: Replace with your phone -->
-            <p>+92 318 9554671</p>
-          </div>
+        <div class="service-card reveal">
+          <div class="icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3l-6 9 6 9M16 3l6 9-6 9M14 4l-4 16"/></svg></div>
+          <h3 class="h3 mt">Web Development</h3>
+          <p class="muted xs">Flask · HTML · CSS · JavaScript</p>
+          <p class="mt">Building responsive, performant web apps with Python-powered backends and clean, accessible front-ends.</p>
         </div>
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div class="contact-item-text">
-            <span>Location</span>
-            <!-- EDIT: Replace with your location -->
-            <p>Pakistan</p>
-          </div>
+        <div class="service-card reveal">
+          <div class="icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+          <h3 class="h3 mt">Software Architecture</h3>
+          <p class="muted xs">Design · Patterns · Scalability</p>
+          <p class="mt">Architecting modular, maintainable systems with clean separation of concerns and long-term scalability.</p>
         </div>
       </div>
-      <div class="contact-form fade-up">
-        <form id="contactForm">
-          <div class="form-group">
-            <input type="text" name="name" placeholder="Your Name" required>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Projects</p>
+        <h2 class="h2">Selected Work</h2>
+        <p class="muted mt narrow">A showcase of projects in machine learning, backend systems, and full-stack applications.</p>
+      </div>
+      <div class="grid-3">
+        {% set projects = [
+          ('01', 'ML Prediction Engine', 'Predictive analytics model using scikit-learn and pandas.', ['Python','ML']),
+          ('02', 'Flask REST API', 'Production-grade REST backend with JWT auth and PostgreSQL.', ['Flask','API']),
+          ('03', 'Computer Vision', 'CNN-based image classifier built with TensorFlow.', ['TensorFlow','CV']),
+          ('04', 'NLP Chatbot', 'Intent-driven conversational assistant with transformer embeddings.', ['NLP','PyTorch']),
+          ('05', 'Data Dashboard', 'Interactive analytics dashboard powered by Flask + Chart.js.', ['Flask','JS']),
+          ('06', 'System Architecture', 'Modular microservice architecture write-up and reference impl.', ['Design','Scalability']),
+        ] %}
+        {% for n, title, desc, tags in projects %}
+        <div class="service-card project-card reveal">
+          <div class="project-thumb">
+            <div class="project-num gradient-text">{{ n }}</div>
+            <div class="muted xs upper">Coming Soon</div>
           </div>
-          <div class="form-group">
-            <input type="email" name="email" placeholder="Your Email" required>
+          <h3 class="h3 mt-4">{{ title }}</h3>
+          <p class="muted xs mt-1">{{ desc }}</p>
+          <div class="chips mt">
+            {% for t in tags %}<span class="chip">{{ t }}</span>{% endfor %}
           </div>
-          <div class="form-group">
-            <input type="text" name="subject" placeholder="Subject">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container narrow-lg">
+      <div class="section-head reveal">
+        <p class="eyebrow">Contact</p>
+        <h2 class="h2">Get In Touch</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-panel reveal">
+          <h3 class="h3">Let's work together</h3>
+          <p class="muted mt">Feel free to reach out for collaborations, freelance work, or just a friendly hello!</p>
+          <div class="contact-list">
+            <a href="mailto:hamidsony671@gmail.com" class="contact-info-row">
+              <span class="contact-info-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+              <span><span class="contact-info-label">Email</span><span class="contact-info-value">hamidsony671@gmail.com</span></span>
+            </a>
+            <a href="tel:+923189554671" class="contact-info-row">
+              <span class="contact-info-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.31 1.79.57 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.43a2 2 0 0 1 2.11-.45c.86.26 1.75.45 2.65.57A2 2 0 0 1 22 16.92z"/></svg></span>
+              <span><span class="contact-info-label">Phone</span><span class="contact-info-value">+92 318 9554671</span></span>
+            </a>
+            <div class="contact-info-row">
+              <span class="contact-info-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              <span><span class="contact-info-label">Location</span><span class="contact-info-value">Peshawar,Pakistan</span></span>
+            </div>
           </div>
-          <div class="form-group">
-            <textarea name="message" placeholder="Your Message" required></textarea>
+          <div class="socials mt">
+            <a href="https://www.linkedin.com/in/hamid-ali-awan-6510203a8?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+            </a>
+            <a href="https://github.com/hamidaliawan602-cmd" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.04 11.04 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+            </a>
           </div>
-          <button type="submit" class="btn-submit">
-            <i class="fas fa-paper-plane"></i> Send Message
+        </div>
+        <form id="contactForm" class="contact-panel reveal" autocomplete="off">
+          <input type="text" name="name" placeholder="Your Name" required maxlength="100" class="form-input" />
+          <input type="email" name="email" placeholder="Your Email" required maxlength="255" class="form-input" />
+          <input type="text" name="subject" placeholder="Subject" required maxlength="200" class="form-input" />
+          <textarea name="message" placeholder="Your Message" rows="5" required maxlength="2000" class="form-input"></textarea>
+          <button type="submit" class="btn-glow full">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            Send Message
           </button>
           <div id="formStatus" class="form-status"></div>
         </form>
@@ -262,11 +266,14 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2026 <span>Hamid Ali Awan</span>. All rights reserved.</p>
+  <footer class="footer">
+    <div class="container footer-inner">
+     <p class="muted xs">©  2026 Hamid Ali Awan. All rights reserved</p>
+     
   </footer>
 
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
+
+
