@@ -67,7 +67,7 @@ h1, h2, h3, .display, .h2, .h3 { font-family: "Space Grotesk", system-ui, sans-s
 
 /* ===== Background blobs ===== */
 .bg-blobs { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
-.blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.45; }
+.blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.45; will-change: transform; }
 .blob.b1 { width: 500px; height: 500px; top: -160px; left: -160px; background: color-mix(in oklab, var(--electric) 40%, transparent); }
 .blob.b2 { width: 600px; height: 600px; top: 35%; right: -200px; background: color-mix(in oklab, var(--electric-2) 30%, transparent); }
 .blob.b3 { width: 400px; height: 400px; bottom: -120px; left: 30%; background: color-mix(in oklab, var(--electric) 22%, transparent); }
@@ -237,6 +237,8 @@ html.light .theme-toggle-thumb .ic-sun { display: block; }
         color-mix(in oklab, var(--electric) 55%, transparent);
 
     animation: float 7s ease-in-out infinite;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .hero-frame-inner {
@@ -282,6 +284,7 @@ html.light .theme-toggle-thumb .ic-sun { display: block; }
   border: 1px dashed color-mix(in oklab, var(--electric) 45%, transparent);
   animation: spin 22s linear infinite;
   pointer-events: none;
+  will-change: transform;
 }
 .hero-orbit::before, .hero-orbit::after {
   content: ""; position: absolute; width: 12px; height: 12px; border-radius: 999px;
@@ -299,6 +302,7 @@ html.light .theme-toggle-thumb .ic-sun { display: block; }
   box-shadow: 0 12px 30px -14px rgba(0,0,0,0.4);
   font-size: 0.8rem; display: flex; align-items: center; gap: 8px; flex-direction: column;
   animation: float 5s ease-in-out infinite;
+  will-change: transform;
 }
 .hero-badge strong { color: var(--fg); font-size: 0.85rem; }
 .hero-badge.tl { top: 8%; left: -6%; flex-direction: row; animation-delay: -1.2s; }
@@ -314,13 +318,14 @@ html.light .theme-toggle-thumb .ic-sun { display: block; }
 .about-grid { margin-top: 56px; display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
 @media (min-width: 1024px) { .about-grid { grid-template-columns: 5fr 7fr; } }
 
-.about-frame { position: relative; max-width: 380px; margin: 0 auto; animation: float 8s ease-in-out infinite; }
+.about-frame { position: relative; max-width: 380px; margin: 0 auto; animation: float 8s ease-in-out infinite; will-change: transform; }
 .about-frame-shape {
   position: relative; padding: 8px;
   border-radius: 32% 68% 62% 38% / 40% 42% 58% 60%;
   background: linear-gradient(135deg, color-mix(in oklab, var(--electric) 60%, transparent), color-mix(in oklab, var(--electric-2) 45%, transparent));
   box-shadow: 0 30px 70px -25px color-mix(in oklab, var(--electric) 45%, transparent);
   animation: morph 14s ease-in-out infinite;
+  will-change: border-radius;
 }
 .about-frame-inner { border-radius: inherit; overflow: hidden; aspect-ratio: 4 / 5; }
 .about-frame-inner img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -331,8 +336,9 @@ html.light .theme-toggle-thumb .ic-sun { display: block; }
   border: 1.5px dashed color-mix(in oklab, var(--electric) 40%, transparent);
   animation: morph 14s ease-in-out infinite reverse;
   pointer-events: none;
+  will-change: border-radius;
 }
-.about-dot { position: absolute; width: 14px; height: 14px; border-radius: 999px; background: linear-gradient(135deg, var(--electric), var(--electric-2)); box-shadow: 0 0 22px color-mix(in oklab, var(--electric) 75%, transparent); }
+.about-dot { position: absolute; width: 14px; height: 14px; border-radius: 999px; background: linear-gradient(135deg, var(--electric), var(--electric-2)); box-shadow: 0 0 22px color-mix(in oklab, var(--electric) 75%, transparent); will-change: transform; }
 .about-dot.a { top: -6px; left: 18%; animation: float 4.5s ease-in-out infinite; }
 .about-dot.b { bottom: 8%; right: -10px; animation: float 5.5s ease-in-out infinite -1.8s; }
 .about-badge {
@@ -341,6 +347,7 @@ html.light .theme-toggle-thumb .ic-sun { display: block; }
   border: 1px solid var(--border); backdrop-filter: blur(14px);
   box-shadow: 0 15px 40px -18px rgba(0,0,0,0.4);
   animation: float 6s ease-in-out infinite -0.9s;
+  will-change: transform;
 }
 .about-badge.bl { bottom: -8px; left: -12px; }
 .h3-num { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1.5rem; }
@@ -448,3 +455,107 @@ textarea.form-input { resize: none; }
 @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
 
+/* =========================================================
+   RESPONSIVE & PERFORMANCE FIXES
+   - Breakpoints at 1024 / 768 / 480px
+   - Lighter backdrop-filter on mobile (main scroll-jank source)
+   - Hover-lift transforms disabled on touch devices
+   - prefers-reduced-motion respected
+   - Animated elements promoted to their own compositor layer
+   ========================================================= */
+
+/* ---- 1024px: tighten section/hero spacing on tablets ---- */
+@media (max-width: 1024px) {
+  .section { padding: 80px 0; }
+  .section.hero { padding-top: 120px; }
+  .blob { filter: blur(70px); }
+}
+
+/* ---- 768px: reduce blur cost, tighten layout ---- */
+@media (max-width: 768px) {
+  .section { padding: 64px 0; }
+  .section.hero { padding-top: 110px; }
+
+  /* backdrop-filter is the single biggest scroll-jank cost on mobile GPUs;
+     cut blur radius (and drop saturate) instead of removing it outright */
+  .glass-nav { backdrop-filter: blur(10px); }
+  .glass,
+  .service-card,
+  .contact-panel { backdrop-filter: blur(10px); }
+  .hero-badge,
+  .about-badge { backdrop-filter: blur(8px); }
+
+  .blob { filter: blur(50px); opacity: 0.35; }
+
+  .hero-badge.tl,
+  .hero-badge.br { font-size: 0.72rem; padding: 8px 10px; }
+}
+
+/* ---- 480px: small phones — fix overflow / clipped badges ---- */
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .section { padding: 48px 0; }
+  .section.hero { padding-top: 100px; min-height: auto; }
+
+  .hero-image { max-width: 280px; }
+  .hero-badge.tl { top: 4%; left: 0; }
+  .hero-badge.br { bottom: 4%; right: 0; }
+  .hero-orbit { display: none; } /* decorative-only, not worth the reflow cost at this size */
+
+  .about-frame { max-width: 260px; }
+  .about-badge.bl { left: 0; bottom: -16px; }
+
+  .stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .stat-num { font-size: 1.2rem; }
+
+  .blob { filter: blur(36px); width: 260px; height: 260px; }
+  .blob.b2 { width: 320px; height: 320px; }
+}
+
+/* ---- Disable hover-lift/scale effects on touch devices ----
+   These transforms only make sense with a real pointer; on touch
+   screens :hover can stick after a tap and cause layout "jumps". */
+@media (hover: none), (pointer: coarse) {
+  .service-card:hover,
+  .contact-panel:hover,
+  .social-icon:hover,
+  .chip:hover,
+  .btn-ghost:hover,
+  .btn-glow:hover,
+  .theme-toggle:hover,
+  .about-frame:hover .about-frame-inner img,
+  .hero-frame:hover .hero-frame-inner img,
+  .contact-info-row:hover,
+  .service-card:hover .icon-wrap {
+    transform: none;
+    box-shadow: none;
+    filter: none;
+  }
+  .nav-link:hover::after { transform: scaleX(0); }
+}
+
+/* ---- Respect reduced-motion preference ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* ---- Compositor layer promotion for continuously-animated elements ----
+   Forces these onto their own GPU layer up front so the browser isn't
+   repainting the whole page on every animation frame during scroll. */
+.hero-frame,
+.hero-badge,
+.about-badge,
+.about-frame,
+.hero-orbit,
+.about-ring,
+.about-dot,
+.blob {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
