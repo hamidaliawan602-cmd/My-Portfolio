@@ -1,0 +1,20 @@
+{% extends "admin/base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block heading %}{{ title }}{% endblock %}
+{% block content %}
+<form class="panel form-panel" method="post">
+  <input type="hidden" name="_csrf" value="{{ csrf_token }}">
+  <label>Project Title<input name="title" required maxlength="150" value="{{ project.title if project else '' }}"></label>
+  <label>Description<textarea name="description" rows="5" required maxlength="1000">{{ project.description if project else '' }}</textarea></label>
+  <label>Technologies / Tags <span class="hint">comma separated</span><input name="tags" value="{{ project.tags if project else '' }}" placeholder="Python, Flask, Machine Learning"></label>
+  <div class="form-grid">
+    <label>Image URL<input name="image_url" value="{{ project.image_url if project else '' }}" placeholder="/static/images/project.jpg"></label>
+    <label>Display Order<input type="number" name="sort_order" value="{{ project.sort_order if project else 0 }}"></label>
+  </div>
+  <div class="form-grid">
+    <label>GitHub URL<input type="url" name="github_url" value="{{ project.github_url if project else '' }}" placeholder="https://github.com/..."></label>
+    <label>Live Demo URL<input type="url" name="live_url" value="{{ project.live_url if project else '' }}" placeholder="https://..."></label>
+  </div>
+  <div class="form-actions"><a class="button secondary" href="{{ url_for('admin_projects') }}">Cancel</a><button class="primary" type="submit">{{ 'Update Project' if project else 'Add Project' }}</button></div>
+</form>
+{% endblock %}

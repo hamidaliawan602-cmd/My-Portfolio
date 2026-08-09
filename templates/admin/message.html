@@ -1,0 +1,32 @@
+{% extends "admin/base.html" %}
+{% block title %}Messages{% endblock %}
+{% block heading %}Messages{% endblock %}
+{% block content %}
+<div class="toolbar"><p class="muted">{{ messages|length }} message(s)</p><a class="button" href="{{ url_for('admin_message_new') }}">+ Add Message</a></div>
+<section class="panel table-wrap">
+<table>
+<thead><tr><th>Name</th><th>Email</th><th>Subject</th><th>Received</th><th>Status</th><th>Actions</th></tr></thead>
+<tbody>
+{% for m in messages %}
+<tr>
+  <td><strong>{{ m.name }}</strong></td>
+  <td><a href="mailto:{{ m.email }}">{{ m.email }}</a></td>
+  <td>{{ m.subject or '—' }}</td>
+  <td>{{ m.received_at[:16].replace('T',' ') }}</td>
+  <td><span class="badge {% if not m.is_read %}unread{% endif %}">{{ 'Unread' if not m.is_read else 'Read' }}</span></td>
+  <td class="actions">
+    <a class="button small" href="{{ url_for('admin_message_edit', message_id=m.id) }}">View / Edit</a>
+    {% if not m.is_read %}
+    <form method="post" action="{{ url_for('admin_message_read', message_id=m.id) }}"><input type="hidden" name="_csrf" value="{{ csrf_token }}"><button class="button small" type="submit">Mark read</button></form>
+    {% endif %}
+    <form method="post" action="{{ url_for('admin_message_delete', message_id=m.id) }}" onsubmit="return confirm('Delete this message?')"><input type="hidden" name="_csrf" value="{{ csrf_token }}"><button class="danger small" type="submit">Delete</button></form>
+  </td>
+</tr>
+<tr class="message-preview"><td colspan="6">{{ m.message }}</td></tr>
+{% else %}
+<tr><td colspan="6" class="empty">No messages yet. Send a message from the public Contact section.</td></tr>
+{% endfor %}
+</tbody>
+</table>
+</section>
+{% endblock %}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Admin{% endblock %} — Hamid Ali Awan</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body class="admin-body">
+  <aside class="sidebar">
+    <div class="brand">Hamid<span>Admin</span></div>
+    <nav>
+      <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('admin_messages') }}">Messages</a>
+      <a href="{{ url_for('admin_projects') }}">Projects</a>
+      <a href="{{ url_for('index') }}" target="_blank">View Portfolio ↗</a>
+      <a href="{{ url_for('admin_logout') }}" class="logout">Logout</a>
+    </nav>
+  </aside>
+  <main class="admin-main">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">ADMIN PANEL</div>
+        <h1>{% block heading %}Dashboard{% endblock %}</h1>
+      </div>
+      <div class="admin-user">{{ session.get('admin_username', 'Admin') }}</div>
+    </header>
+
+    {% with flashes = get_flashed_messages(with_categories=true) %}
+      {% if flashes %}
+        <div class="flash-wrap">
+        {% for category, text in flashes %}
+          <div class="flash {{ category }}">{{ text }}</div>
+        {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

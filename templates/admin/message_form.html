@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block heading %}{{ title }}{% endblock %}
+{% block content %}
+<form class="panel form-panel" method="post">
+  <input type="hidden" name="_csrf" value="{{ csrf_token }}">
+  <div class="form-grid">
+    <label>Name<input name="name" required value="{{ message.name if message else '' }}"></label>
+    <label>Email<input type="email" name="email" required value="{{ message.email if message else '' }}"></label>
+  </div>
+  <label>Subject<input name="subject" value="{{ message.subject if message else '' }}"></label>
+  <label>Message<textarea name="message" rows="9" required>{{ message.message if message else '' }}</textarea></label>
+  {% if message %}
+  <label class="check"><input type="checkbox" name="is_read" value="1" {% if message.is_read %}checked{% endif %}> Mark as read</label>
+  {% endif %}
+  <div class="form-actions"><a class="button secondary" href="{{ url_for('admin_messages') }}">Cancel</a><button class="primary" type="submit">{{ 'Update' if message else 'Add Message' }}</button></div>
+</form>
+{% endblock %}

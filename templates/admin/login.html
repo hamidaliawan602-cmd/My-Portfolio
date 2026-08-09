@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Login — Hamid Ali Awan</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body class="login-body">
+  <div class="login-card">
+    <div class="eyebrow">HAMID ALI AWAN</div>
+    <h1>Admin Login</h1>
+    <p class="muted">Manage contact messages and portfolio projects.</p>
+    {% with flashes = get_flashed_messages(with_categories=true) %}
+      {% for category, text in flashes %}<div class="flash {{ category }}">{{ text }}</div>{% endfor %}
+    {% endwith %}
+    <form method="post">
+      <input type="hidden" name="_csrf" value="{{ csrf_token }}">
+      <label>Username</label>
+      <input name="username" required autocomplete="username">
+      <label>Password</label>
+      <input name="password" type="password" required autocomplete="current-password">
+      <button class="primary" type="submit">Sign In</button>
+    </form>
+    <a class="back" href="{{ url_for('index') }}">← Back to portfolio</a>
+  </div>
+</body>
+</html>

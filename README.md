@@ -1,36 +1,55 @@
-# Hamid Ali Awan — Portfolio
+# Hamid Ali Awan — Portfolio + Admin CMS
 
-## Setup
+This version adds a protected admin panel for contact messages and projects.
 
-1. Install Python 3.8+ and pip
-2. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-3. Run the app:
-   ```
-   python app.py
-   ```
-4. Open http://localhost:5000
+## Admin panel
 
-## Customization
+Open:
 
-- **Social links**: Edit `templates/index.html` — search for `your-profile` and replace with your actual URLs
-- **Contact info**: Edit email, phone, location in `templates/index.html` — search for `EDIT:`
-- **CV download**: Place your CV as `static/cv/Hamid_Ali_Awan_CV.pdf`
-- **Profile photo**: Add photo to `static/img/photo.jpg` and uncomment the `<img>` tag in the hero section
-- **Projects**: Edit the project cards in the Projects section
+`/admin/login`
 
-## Structure
+After login you can:
 
+- View contact messages
+- Add, edit, mark read, and delete messages
+- Add, edit, update, and delete projects
+- Change project order, tags, image, GitHub URL, and live demo URL
+- View dashboard counts
+- Return to the public portfolio
+
+## Local setup
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+set ADMIN_USERNAME=admin
+set ADMIN_PASSWORD=your-strong-password
+set SECRET_KEY=your-random-secret
+python app.py
 ```
-├── app.py                  # Flask backend
-├── requirements.txt
-├── templates/
-│   └── index.html          # Main page
-└── static/
-    ├── css/style.css       # Styles
-    ├── js/main.js          # Animations & interactions
-    ├── cv/                 # Place CV here
-    └── img/                # Place images here
-```
+
+Then open `http://127.0.0.1:5000`.
+
+Without Supabase environment variables, local development uses `portfolio.db`.
+
+## Vercel deployment — important
+
+Vercel's filesystem is not a permanent database. Therefore, for the admin panel to keep messages/projects after deployment, use Supabase.
+
+1. Create a Supabase project.
+2. Open `supabase_schema.sql` in Supabase SQL Editor and run it.
+3. In Vercel Project Settings → Environment Variables, add:
+   - `SECRET_KEY`
+   - `ADMIN_USERNAME`
+   - `ADMIN_PASSWORD`
+   - `SUPABASE_URL`
+   - `SUPABASE_KEY`
+4. For `SUPABASE_KEY`, use the server-side service-role key. Never put it in frontend JavaScript.
+5. Redeploy the project.
+
+The public contact form stores messages in the `messages` table. The admin panel reads and manages the same records.
+
+## Important
+
+Do not commit `.env` or real Supabase keys to GitHub.
