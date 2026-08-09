@@ -1,1165 +1,1391 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
 
-  <title>Hamid Ali Awan — ML Specialist & Website Developer</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-  <meta
-    name="description"
-    content="Portfolio of Hamid Ali Awan, BS Software Engineering graduate specializing in Machine Learning and Backend Development."
-  />
+    <meta
+        name="description"
+        content="Hamid Ali Awan — Machine Learning Specialist and Backend Developer."
+    >
 
-  <meta name="author" content="Hamid Ali Awan" />
+    <meta
+        name="author"
+        content="Hamid Ali Awan"
+    >
 
-  <script src="https://cdn.tailwindcss.com"></script>
+    <title>Hamid Ali Awan | Portfolio</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  />
-
-  <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='css/style.css') }}"
-  />
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
 </head>
 
 <body>
 
-  <!-- Background blobs -->
-  <div class="bg-blobs" aria-hidden="true">
-    <span class="blob b1"></span>
-    <span class="blob b2"></span>
-    <span class="blob b3"></span>
-  </div>
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
 
-
-  <!-- =========================
-       NAVIGATION
-  ========================== -->
-
-  <nav id="nav" class="glass-nav">
+<nav id="nav" class="nav">
 
     <div class="nav-inner">
 
-      <a href="#home" class="brand">
-        <span class="gradient-text animated">HamidAliAwan</span>
-        <span class="dot">.</span>
-      </a>
-
-      <ul class="nav-links" id="navLinks">
-
-        <li>
-          <a href="#home" class="nav-link">Home</a>
-        </li>
-
-        <li>
-          <a href="#about" class="nav-link">About</a>
-        </li>
-
-        <li>
-          <a href="#services" class="nav-link">Services</a>
-        </li>
-
-        <li>
-          <a href="#projects" class="nav-link">Projects</a>
-        </li>
-
-        <li>
-          <a href="#contact" class="nav-link">Contact</a>
-        </li>
-
-      </ul>
-
-
-      <div class="nav-actions">
-
-        <button
-          id="themeToggle"
-          class="theme-toggle"
-          aria-label="Toggle theme"
+        <a
+            href="#home"
+            class="brand"
         >
+            <span class="gradient-text animated">
+                HamidAliAwan
+            </span>
 
-          <span
-            class="theme-toggle-thumb left"
-            id="themeThumb"
-          >
-
-            <svg
-              class="ic-moon"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-            >
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-            </svg>
-
-            <svg
-              class="ic-sun"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-            >
-              <circle cx="12" cy="12" r="4"/>
-              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
-            </svg>
-
-          </span>
-
-
-          <span class="theme-toggle-icon">
-
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-            >
-              <circle cx="12" cy="12" r="4"/>
-              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
-            </svg>
-
-          </span>
-
-
-          <span class="theme-toggle-icon">
-
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-            >
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-            </svg>
-
-          </span>
-
-        </button>
-
-
-        <a href="#contact" class="btn-glow hire-btn">
-          Hire Me
+            <span class="dot">.</span>
         </a>
 
 
-        <button
-          id="menuBtn"
-          class="menu-btn"
-          aria-label="Menu"
+        <ul
+            class="nav-links"
+            id="navLinks"
         >
 
-          <svg
-            width="26"
-            height="26"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M3 6h18M3 12h18M3 18h18"/>
-          </svg>
+            <li>
+                <a
+                    href="#home"
+                    class="nav-link"
+                >
+                    Home
+                </a>
+            </li>
 
-        </button>
+            <li>
+                <a
+                    href="#about"
+                    class="nav-link"
+                >
+                    About
+                </a>
+            </li>
 
-      </div>
+            <li>
+                <a
+                    href="#services"
+                    class="nav-link"
+                >
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="#projects"
+                    class="nav-link"
+                >
+                    Projects
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="#contact"
+                    class="nav-link"
+                >
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="nav-actions">
+
+            <!-- Theme Toggle -->
+
+            <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Toggle theme"
+            >
+
+                <span
+                    class="theme-toggle-thumb left"
+                    id="themeThumb"
+                >
+
+                    <!-- Moon -->
+
+                    <svg
+                        class="ic-moon"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                    >
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+
+
+                    <!-- Sun -->
+
+                    <svg
+                        class="ic-sun"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                    >
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="4"
+                        />
+
+                        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+                    </svg>
+
+                </span>
+
+
+                <span class="theme-toggle-icon">
+
+                    <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                    >
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="4"
+                        />
+
+                        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+                    </svg>
+
+                </span>
+
+
+                <span class="theme-toggle-icon">
+
+                    <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                    >
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+
+                </span>
+
+            </button>
+
+
+            <!-- Hire Me -->
+
+            <a
+                href="#contact"
+                class="btn-glow hire-btn"
+            >
+                Hire Me
+            </a>
+
+
+            <!-- Mobile Menu Button -->
+
+            <button
+                id="menuBtn"
+                class="menu-btn"
+                type="button"
+                aria-label="Open menu"
+                aria-controls="mobileMenu"
+            >
+
+                <svg
+                    width="26"
+                    height="26"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path d="M3 6h18M3 12h18M3 18h18"/>
+                </svg>
+
+            </button>
+
+        </div>
 
     </div>
 
-
-    <div id="mobileMenu" class="mobile-menu">
-
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-
-    </div>
-
-  </nav>
+</nav>
 
 
+<!-- =========================================================
+     MOBILE MENU
+========================================================= -->
 
-  <!-- =========================
-       HERO
-  ========================== -->
+<div
+    id="mobileMenu"
+    class="mobile-menu"
+>
 
-  <section id="home" class="section hero">
+    <a href="#home">
+        Home
+    </a>
+
+    <a href="#about">
+        About
+    </a>
+
+    <a href="#services">
+        Services
+    </a>
+
+    <a href="#projects">
+        Projects
+    </a>
+
+    <a href="#contact">
+        Contact
+    </a>
+
+</div>
+
+
+<!-- =========================================================
+     HOME / HERO
+========================================================= -->
+
+<main>
+
+<section
+    id="home"
+    class="hero section"
+>
 
     <div class="container hero-grid">
 
-      <div class="hero-copy reveal">
+        <div class="hero-copy reveal">
 
-        <span class="pill">
-          <span class="pill-dot"></span>
-          HELLO , I'M
-        </span>
+            <span class="pill">
 
+                <span class="pill-dot"></span>
 
-        <h1 class="display">
-          Hamid Ali
-          <span class="gradient-text animated">Awan</span>
-        </h1>
+                HELLO, I'M
+
+            </span>
 
 
-        <div class="type-line">
-          <span id="typed" class="typed"></span>
-          <span class="cursor-blink">|</span>
-        </div>
+            <h1 class="display">
+
+                Hamid Ali
+
+                <span class="gradient-text animated">
+                    Awan
+                </span>
+
+            </h1>
 
 
-        <p class="lede">
-          BS Software Engineering graduate crafting intelligent systems and robust backends.
-          I build solutions where data meets clean architecture.
-        </p>
+            <div class="type-line">
+
+                <span
+                    id="typed"
+                    class="typed"
+                ></span>
+
+                <span class="cursor-blink">
+                    |
+                </span>
+
+            </div>
 
 
-        <div class="hero-actions">
+            <p class="lede">
 
-          <a
-            href="{{ url_for('static', filename='cv/cv offical.pdf') }}"
-            download
-            class="btn-glow"
-          >
+                BS Software Engineering student crafting
+                intelligent systems and robust backends.
+                I build solutions where data meets clean
+                architecture.
 
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/>
-            </svg>
-
-            Download CV
-
-          </a>
+            </p>
 
 
-          <a href="#projects" class="btn-ghost">
-            View Work
-          </a>
+            <div class="hero-actions">
 
+                <!-- CV -->
 
-          <div>
-
-            <div class="socials">
-
-              <a
-                href="https://www.linkedin.com/in/hamid-ali-awan-6510203a8?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-                target="_blank"
-                rel="noopener"
-                class="social-icon"
-                aria-label="LinkedIn"
-              >
-
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
+                <a
+                    href="{{ url_for('download_cv') }}"
+                    class="btn-glow"
                 >
-                  <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/>
-                </svg>
 
-              </a>
+                    <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/>
+                    </svg>
+
+                    Download CV
+
+                </a>
 
 
-              <a
-                href="https://github.com/hamidaliawan602-cmd"
-                target="_blank"
-                rel="noopener"
-                class="social-icon"
-                aria-label="GitHub"
-              >
+                <!-- Projects -->
 
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
+                <a
+                    href="#projects"
+                    class="btn-ghost"
                 >
-                  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/>
-                </svg>
+                    View Work
+                </a>
 
-              </a>
+
+                <!-- Social Links -->
+
+                <div>
+
+                    <div class="socials">
+
+                        <a
+                            href="https://www.linkedin.com/in/hamid-ali-awan-6510203a8"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-icon"
+                            aria-label="LinkedIn"
+                        >
+
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                            >
+                                <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/>
+                            </svg>
+
+                        </a>
+
+
+                        <a
+                            href="https://github.com/hamidaliawan602-cmd"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-icon"
+                            aria-label="GitHub"
+                        >
+
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                            >
+                                <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/>
+                            </svg>
+
+                        </a>
+
+                    </div>
+
+                </div>
 
             </div>
 
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="hero-image reveal">
-
-        <div class="hero-orbit"></div>
-
-        <div class="hero-frame">
-
-          <div class="hero-frame-inner">
-
-            <img
-              src="{{ url_for('static', filename='images/1.png') }}"
-              alt="Hamid Ali Awan working"
-            />
-
-            <div class="hero-fade"></div>
-
-          </div>
-
         </div>
 
 
-        <div class="hero-badge tl">
+        <!-- Hero Image -->
 
-          <span class="pill-dot"></span>
-          <strong>Open to Work</strong>
+        <div class="hero-image reveal">
 
-        </div>
+            <div class="hero-orbit"></div>
 
 
-        <div class="hero-badge br">
+            <div class="hero-frame">
 
-          <div class="muted xs">
-            Based in
-          </div>
+                <div class="hero-frame-inner">
 
-          <strong>Pakistan</strong>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================
-       ABOUT
-  ========================== -->
-
-  <section id="about" class="section">
-
-    <div class="container">
-
-      <div class="section-head reveal">
-
-        <p class="eyebrow">About Me</p>
-
-        <h2 class="h2">
-          Engineer. Builder. Problem-Solver.
-        </h2>
-
-      </div>
-
-
-      <div class="about-grid">
-
-        <div class="reveal">
-
-          <div class="about-frame">
-
-            <div class="about-ring"></div>
-
-            <span class="about-dot a"></span>
-            <span class="about-dot b"></span>
-
-
-            <div class="about-frame-shape">
-
-              <div class="about-frame-inner">
-
-                <img
-                  src="{{ url_for('static', filename='images/IMG-20240627-WA0002.jpg') }}"
-                  alt="Hamid Ali Awan working"
-                />
-
-              </div>
-
-            </div>
-
-
-            <div class="about-badge bl">
-
-              <div class="h3-num gradient-text">
-                3+
-              </div>
-
-              <div class="muted xs upper">
-                Years Coding
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <div class="reveal">
-
-          <div class="glass card">
-
-            <p class="lead">
-
-              I'm <strong>Hamid Ali Awan</strong>, a
-              <span class="electric">BS Software Engineering</span>
-              graduate with a passion for building intelligent, scalable software.
-              My academic foundation in computing fuels my ability to design clean
-              architectures and develop production-grade backends.
-
-            </p>
-
-
-            <p class="muted mt">
-
-              I specialize in Machine Learning with Python and backend development
-              with Flask, blending algorithmic thinking with pragmatic engineering.
-
-            </p>
-
-
-            <div class="stats">
-
-              <div>
-
-                <div class="stat-num">
-                  BS
-                </div>
-
-                <div class="muted xs">
-                  Software Eng.
-                </div>
-
-              </div>
-
-
-              <div>
-
-                <div class="stat-num">
-                  10+
-                </div>
-
-                <div class="muted xs">
-                  Projects Built
-                </div>
-
-              </div>
-
-
-              <div>
-
-                <div class="stat-num">
-                  100%
-                </div>
-
-                <div class="muted xs">
-                  Committed
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="glass card mt-6">
-
-            <h3 class="h3">
-              Core Stack
-            </h3>
-
-
-            <div class="chips">
-
-              <span class="chip">AI</span>
-              <span class="chip">Python</span>
-              <span class="chip">TensorFlow</span>
-              <span class="chip">PyTorch</span>
-              <span class="chip">scikit-learn</span>
-              <span class="chip">SQL</span>
-              <span class="chip">REST APIs</span>
-              <span class="chip">HTML/CSS</span>
-              <span class="chip">JavaScript</span>
-              <span class="chip">Flask</span>
-              <span class="chip">Git</span>
-              <span class="chip">GitHub</span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================
-       SERVICES
-  ========================== -->
-
-  <section id="services" class="section">
-
-    <div class="container">
-
-      <div class="section-head reveal">
-
-        <p class="eyebrow">
-          Services
-        </p>
-
-        <h2 class="h2">
-          What I Do Best
-        </h2>
-
-      </div>
-
-
-      <div class="grid-3">
-
-
-        <div class="service-card reveal">
-
-          <div class="icon-wrap">
-
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <circle cx="12" cy="12" r="3"/>
-              <path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/>
-            </svg>
-
-          </div>
-
-
-          <h3 class="h3 mt">
-            Machine Learning
-          </h3>
-
-
-          <p class="muted xs">
-            Python · TensorFlow · PyTorch
-          </p>
-
-
-          <p class="mt">
-            Designing and training models for prediction, classification,
-            and computer vision. From data pipelines to deployment.
-          </p>
-
-        </div>
-
-
-
-        <div class="service-card reveal">
-
-          <div class="icon-wrap">
-
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M8 3l-6 9 6 9M16 3l6 9-6 9M14 4l-4 16"/>
-            </svg>
-
-          </div>
-
-
-          <h3 class="h3 mt">
-            Web Development
-          </h3>
-
-
-          <p class="muted xs">
-            Flask · HTML · CSS · JavaScript
-          </p>
-
-
-          <p class="mt">
-            Building responsive, performant web apps with Python-powered
-            backends and clean, accessible front-ends.
-          </p>
-
-        </div>
-
-
-
-        <div class="service-card reveal">
-
-          <div class="icon-wrap">
-
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <rect x="3" y="3" width="7" height="7"/>
-              <rect x="14" y="3" width="7" height="7"/>
-              <rect x="3" y="14" width="7" height="7"/>
-              <rect x="14" y="14" width="7" height="7"/>
-            </svg>
-
-          </div>
-
-
-          <h3 class="h3 mt">
-            Software Architecture
-          </h3>
-
-
-          <p class="muted xs">
-            Design · Patterns · Scalability
-          </p>
-
-
-          <p class="mt">
-            Architecting modular, maintainable systems with clean separation
-            of concerns and long-term scalability.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================
-       PROJECTS
-       DYNAMIC FROM SUPABASE
-  ========================== -->
-
-  <section id="projects" class="section">
-
-    <div class="container">
-
-      <div class="section-head reveal">
-
-        <p class="eyebrow">
-          Projects
-        </p>
-
-        <h2 class="h2">
-          Selected Work
-        </h2>
-
-        <p class="muted mt narrow">
-          A showcase of projects in machine learning, backend systems,
-          and full-stack applications.
-        </p>
-
-      </div>
-
-
-      <div class="grid-3">
-
-        {% if projects %}
-
-          {% for project in projects %}
-
-            <div class="service-card project-card reveal">
-
-
-              <!-- Project Image / Placeholder -->
-
-              <div class="project-thumb">
-
-                {% if project.image_url %}
-
-                  <img
-                    src="{{ project.image_url }}"
-                    alt="{{ project.title }}"
-                    style="width:100%; height:100%; object-fit:cover; border-radius:12px;"
-                    loading="lazy"
-                  />
-
-                {% else %}
-
-                  <div class="project-num gradient-text">
-                    {{ "%02d"|format(loop.index) }}
-                  </div>
-
-                  <div class="muted xs upper">
-                    Project
-                  </div>
-
-                {% endif %}
-
-              </div>
-
-
-
-              <!-- Project Title -->
-
-              <h3 class="h3 mt-4">
-                {{ project.title }}
-              </h3>
-
-
-
-              <!-- Project Description -->
-
-              <p class="muted xs mt-1">
-                {{ project.description }}
-              </p>
-
-
-
-              <!-- Project Tags -->
-
-              {% if project.tags %}
-
-                <div class="chips mt">
-
-                  {% for tag in project.tags.split(',') %}
-
-                    {% if tag.strip() %}
-
-                      <span class="chip">
-                        {{ tag.strip() }}
-                      </span>
-
-                    {% endif %}
-
-                  {% endfor %}
-
-                </div>
-
-              {% endif %}
-
-
-
-              <!-- Project Links -->
-
-              {% if project.github_url or project.live_url %}
-
-                <div class="project-links mt">
-
-                  {% if project.github_url %}
-
-                    <a
-                      href="{{ project.github_url }}"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="btn-ghost"
+                    <img
+                        src="{{ url_for('static', filename='images/1.png') }}"
+                        alt="Hamid Ali Awan"
+                        loading="eager"
                     >
-                      GitHub
-                    </a>
 
-                  {% endif %}
-
-
-                  {% if project.live_url %}
-
-                    <a
-                      href="{{ project.live_url }}"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="btn-glow"
-                    >
-                      Live Demo
-                    </a>
-
-                  {% endif %}
+                    <div class="hero-fade"></div>
 
                 </div>
 
-              {% endif %}
+            </div>
 
+
+            <div class="hero-badge tl">
+
+                <span class="pill-dot"></span>
+
+                <strong>
+                    Open to Work
+                </strong>
 
             </div>
 
-          {% endfor %}
 
+            <div class="hero-badge br">
 
-        {% else %}
+                <div class="muted xs">
+                    Based in
+                </div>
 
+                <strong>
+                    Pakistan
+                </strong>
 
-          <!-- No Projects -->
+            </div>
 
-          <div class="service-card reveal">
-
-            <h3 class="h3">
-              No Projects Yet
-            </h3>
-
-            <p class="muted mt">
-              Projects will appear here when they are added from
-              the Admin Panel.
-            </p>
-
-          </div>
-
-
-        {% endif %}
-
-      </div>
+        </div>
 
     </div>
 
-  </section>
+</section>
 
 
+<!-- =========================================================
+     ABOUT
+========================================================= -->
 
-  <!-- =========================
-       CONTACT
-  ========================== -->
+<section
+    id="about"
+    class="section"
+>
 
-  <section id="contact" class="section">
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <p class="eyebrow">
+                About Me
+            </p>
+
+            <h2 class="h2">
+                Engineer. Builder. Problem-Solver.
+            </h2>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <!-- About Image -->
+
+            <div class="reveal">
+
+                <div class="about-frame">
+
+                    <div class="about-ring"></div>
+
+                    <span class="about-dot a"></span>
+                    <span class="about-dot b"></span>
+
+
+                    <div class="about-frame-shape">
+
+                        <div class="about-frame-inner">
+
+                            <img
+                                src="{{ url_for('static', filename='images/IMG-20240627-WA0002.jpg') }}"
+                                alt="Hamid Ali Awan"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-badge bl">
+
+                        <div class="h3-num gradient-text">
+                            3+
+                        </div>
+
+                        <div class="muted xs upper">
+                            Years Coding
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- About Content -->
+
+            <div class="reveal">
+
+                <div class="glass card">
+
+                    <p class="lead">
+
+                        I'm
+                        <strong>Hamid Ali Awan</strong>,
+                        a
+                        <span class="electric">
+                            BS Software Engineering
+                        </span>
+                        student with a passion for building
+                        intelligent, scalable software.
+
+                        My academic foundation in computing
+                        fuels my ability to design clean
+                        architectures and develop
+                        production-ready backends.
+
+                    </p>
+
+
+                    <p class="muted mt">
+
+                        I specialize in Machine Learning with
+                        Python and backend development with
+                        Flask, blending algorithmic thinking
+                        with pragmatic engineering.
+
+                    </p>
+
+
+                    <div class="stats">
+
+                        <div>
+
+                            <div class="stat-num">
+                                BS
+                            </div>
+
+                            <div class="muted xs">
+                                Software Eng.
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="stat-num">
+                                10+
+                            </div>
+
+                            <div class="muted xs">
+                                Projects Built
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="stat-num">
+                                100%
+                            </div>
+
+                            <div class="muted xs">
+                                Committed
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Core Stack -->
+
+                <div class="glass card mt-6">
+
+                    <h3 class="h3">
+                        Core Stack
+                    </h3>
+
+
+                    <div class="chips">
+
+                        <span class="chip">AI</span>
+                        <span class="chip">Python</span>
+                        <span class="chip">TensorFlow</span>
+                        <span class="chip">PyTorch</span>
+                        <span class="chip">scikit-learn</span>
+                        <span class="chip">SQL</span>
+                        <span class="chip">REST APIs</span>
+                        <span class="chip">HTML/CSS</span>
+                        <span class="chip">JavaScript</span>
+                        <span class="chip">Flask</span>
+                        <span class="chip">Git</span>
+                        <span class="chip">GitHub</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section
+    id="services"
+    class="section"
+>
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <p class="eyebrow">
+                Services
+            </p>
+
+            <h2 class="h2">
+                What I Do Best
+            </h2>
+
+        </div>
+
+
+        <div class="grid-3">
+
+            <!-- Machine Learning -->
+
+            <div class="service-card reveal">
+
+                <div class="icon-wrap">
+
+                    <svg
+                        width="28"
+                        height="28"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="3"
+                        />
+
+                        <path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/>
+                    </svg>
+
+                </div>
+
+
+                <h3 class="h3 mt">
+                    Machine Learning
+                </h3>
+
+
+                <p class="muted xs">
+                    Python · TensorFlow · PyTorch
+                </p>
+
+
+                <p class="mt">
+
+                    Designing and training models for
+                    prediction, classification, and
+                    computer vision.
+
+                    From data pipelines to deployment.
+
+                </p>
+
+            </div>
+
+
+            <!-- Web Development -->
+
+            <div class="service-card reveal">
+
+                <div class="icon-wrap">
+
+                    <svg
+                        width="28"
+                        height="28"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path d="M8 3l-6 9 6 9M16 3l6 9-6 9M14 4l-4 16"/>
+                    </svg>
+
+                </div>
+
+
+                <h3 class="h3 mt">
+                    Web Development
+                </h3>
+
+
+                <p class="muted xs">
+                    Flask · HTML · CSS · JavaScript
+                </p>
+
+
+                <p class="mt">
+
+                    Building responsive, performant web
+                    apps with Python-powered backends
+                    and clean, accessible front-ends.
+
+                </p>
+
+            </div>
+
+
+            <!-- Software Architecture -->
+
+            <div class="service-card reveal">
+
+                <div class="icon-wrap">
+
+                    <svg
+                        width="28"
+                        height="28"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <rect
+                            x="3"
+                            y="3"
+                            width="7"
+                            height="7"
+                        />
+
+                        <rect
+                            x="14"
+                            y="3"
+                            width="7"
+                            height="7"
+                        />
+
+                        <rect
+                            x="3"
+                            y="14"
+                            width="7"
+                            height="7"
+                        />
+
+                        <rect
+                            x="14"
+                            y="14"
+                            width="7"
+                            height="7"
+                        />
+
+                    </svg>
+
+                </div>
+
+
+                <h3 class="h3 mt">
+                    Software Architecture
+                </h3>
+
+
+                <p class="muted xs">
+                    Design · Patterns · Scalability
+                </p>
+
+
+                <p class="mt">
+
+                    Architecting modular, maintainable
+                    systems with clean separation of
+                    concerns and long-term scalability.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROJECTS
+========================================================= -->
+
+<section
+    id="projects"
+    class="section"
+>
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <p class="eyebrow">
+                Projects
+            </p>
+
+            <h2 class="h2">
+                Selected Work
+            </h2>
+
+            <p class="muted mt narrow">
+
+                A showcase of projects in machine learning,
+                backend systems, and full-stack applications.
+
+            </p>
+
+        </div>
+
+
+        <div class="grid-3">
+
+            {% if projects %}
+
+                {% for project in projects %}
+
+                    <div class="service-card project-card reveal">
+
+
+                        <!-- Project Image -->
+
+                        <div class="project-thumb">
+
+                            {% if project.image_url %}
+
+                                <img
+                                    src="{{ project.image_url }}"
+                                    alt="{{ project.title }}"
+                                    loading="lazy"
+                                    style="
+                                        width:100%;
+                                        height:100%;
+                                        object-fit:cover;
+                                        border-radius:12px;
+                                    "
+                                >
+
+                            {% else %}
+
+                                <div class="project-num gradient-text">
+
+                                    {{ "%02d"|format(loop.index) }}
+
+                                </div>
+
+                                <div class="muted xs upper">
+                                    Project
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- Project Title -->
+
+                        <h3 class="h3 mt-4">
+
+                            {{ project.title }}
+
+                        </h3>
+
+
+                        <!-- Project Description -->
+
+                        <p class="muted xs mt-1">
+
+                            {{ project.description }}
+
+                        </p>
+
+
+                        <!-- Project Tags -->
+
+                        {% if project.tags %}
+
+                            <div class="chips mt">
+
+                                {% for tag in project.tags.split(',') %}
+
+                                    {% if tag.strip() %}
+
+                                        <span class="chip">
+
+                                            {{ tag.strip() }}
+
+                                        </span>
+
+                                    {% endif %}
+
+                                {% endfor %}
+
+                            </div>
+
+                        {% endif %}
+
+
+                        <!-- Project Links -->
+
+                        {% if project.github_url or project.live_url %}
+
+                            <div class="project-links mt">
+
+                                {% if project.github_url %}
+
+                                    <a
+                                        href="{{ project.github_url }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="btn-ghost"
+                                    >
+                                        GitHub
+                                    </a>
+
+                                {% endif %}
+
+
+                                {% if project.live_url %}
+
+                                    <a
+                                        href="{{ project.live_url }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="btn-glow"
+                                    >
+                                        Live Demo
+                                    </a>
+
+                                {% endif %}
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                {% endfor %}
+
+
+            {% else %}
+
+                <!-- No Projects -->
+
+                <div class="service-card reveal">
+
+                    <h3 class="h3">
+                        No Projects Yet
+                    </h3>
+
+                    <p class="muted mt">
+
+                        Projects will appear here when they
+                        are added from the Admin Panel.
+
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section
+    id="contact"
+    class="section"
+>
 
     <div class="container narrow-lg">
 
-      <div class="section-head reveal">
+        <div class="section-head reveal">
 
-        <p class="eyebrow">
-          Contact
-        </p>
+            <p class="eyebrow">
+                Contact
+            </p>
 
-        <h2 class="h2">
-          Get In Touch
-        </h2>
-
-      </div>
-
-
-      <div class="contact-grid">
-
-
-        <div class="contact-panel reveal">
-
-          <h3 class="h3">
-            Let's work together
-          </h3>
-
-
-          <p class="muted mt">
-            Feel free to reach out for collaborations, freelance work,
-            or just a friendly hello!
-          </p>
-
-
-          <div class="contact-list">
-
-
-            <a
-              href="mailto:hamidsony671@gmail.com"
-              class="contact-info-row"
-            >
-
-              <span class="contact-info-icon">
-
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <rect x="3" y="5" width="18" height="14" rx="2"/>
-                  <path d="M3 7l9 6 9-6"/>
-                </svg>
-
-              </span>
-
-
-              <span>
-
-                <span class="contact-info-label">
-                  Email
-                </span>
-
-                <span class="contact-info-value">
-                  hamidsony671@gmail.com
-                </span>
-
-              </span>
-
-            </a>
-
-
-
-            <a
-              href="tel:+923189554671"
-              class="contact-info-row"
-            >
-
-              <span class="contact-info-icon">
-
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.31 1.79.57 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.43a2 2 0 0 1 2.11-.45c.86.26 1.75.45 2.65.57A2 2 0 0 1 22 16.92z"/>
-                </svg>
-
-              </span>
-
-
-              <span>
-
-                <span class="contact-info-label">
-                  Phone
-                </span>
-
-                <span class="contact-info-value">
-                  +92 318 9554671
-                </span>
-
-              </span>
-
-            </a>
-
-
-
-            <div class="contact-info-row">
-
-              <span class="contact-info-icon">
-
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-
-              </span>
-
-
-              <span>
-
-                <span class="contact-info-label">
-                  Location
-                </span>
-
-                <span class="contact-info-value">
-                  Peshawar, Pakistan
-                </span>
-
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <div class="socials mt">
-
-
-            <a
-              href="https://www.linkedin.com/in/hamid-ali-awan-6510203a8?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-              target="_blank"
-              rel="noopener"
-              class="social-icon"
-              aria-label="LinkedIn"
-            >
-
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/>
-              </svg>
-
-            </a>
-
-
-            <a
-              href="https://github.com/hamidaliawan602-cmd"
-              target="_blank"
-              rel="noopener"
-              class="social-icon"
-              aria-label="GitHub"
-            >
-
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/>
-              </svg>
-
-            </a>
-
-          </div>
+            <h2 class="h2">
+                Get In Touch
+            </h2>
 
         </div>
 
 
-
-        <!-- Contact Form -->
-
-        <form
-          id="contactForm"
-          class="contact-panel reveal"
-          autocomplete="off"
-        >
-
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            required
-            maxlength="100"
-            class="form-input"
-          />
+        <div class="contact-grid">
 
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            required
-            maxlength="255"
-            class="form-input"
-          />
+            <!-- Contact Information -->
+
+            <div class="contact-panel reveal">
+
+                <h3 class="h3">
+                    Let's work together
+                </h3>
 
 
-          <input
-            type="text"
-            name="subject"
-            placeholder="Subject"
-            required
-            maxlength="200"
-            class="form-input"
-          />
+                <p class="muted mt">
+
+                    Feel free to reach out for collaborations,
+                    freelance work, or just a friendly hello!
+
+                </p>
 
 
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            rows="5"
-            required
-            maxlength="2000"
-            class="form-input"
-          ></textarea>
+                <div class="contact-list">
 
 
-          <button
-            type="submit"
-            class="btn-glow full"
-          >
+                    <!-- Email -->
 
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+                    <a
+                        href="mailto:hamidsony671@gmail.com"
+                        class="contact-info-row"
+                    >
+
+                        <span class="contact-info-icon">
+
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <rect
+                                    x="3"
+                                    y="5"
+                                    width="18"
+                                    height="14"
+                                    rx="2"
+                                />
+
+                                <path d="M3 7l9 6 9-6"/>
+
+                            </svg>
+
+                        </span>
+
+
+                        <span>
+
+                            <span class="contact-info-label">
+                                Email
+                            </span>
+
+                            <span class="contact-info-value">
+                                hamidsony671@gmail.com
+                            </span>
+
+                        </span>
+
+                    </a>
+
+
+                    <!-- Phone -->
+
+                    <a
+                        href="tel:+923189554671"
+                        class="contact-info-row"
+                    >
+
+                        <span class="contact-info-icon">
+
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.31 1.79.57 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.43a2 2 0 0 1 2.11-.45c.86.26 1.75.45 2.65.57A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+
+                        </span>
+
+
+                        <span>
+
+                            <span class="contact-info-label">
+                                Phone
+                            </span>
+
+                            <span class="contact-info-value">
+                                +92 318 9554671
+                            </span>
+
+                        </span>
+
+                    </a>
+
+
+                    <!-- Location -->
+
+                    <div class="contact-info-row">
+
+                        <span class="contact-info-icon">
+
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/>
+
+                                <circle
+                                    cx="12"
+                                    cy="10"
+                                    r="3"
+                                />
+
+                            </svg>
+
+                        </span>
+
+
+                        <span>
+
+                            <span class="contact-info-label">
+                                Location
+                            </span>
+
+                            <span class="contact-info-value">
+                                Peshawar, Pakistan
+                            </span>
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Social Links -->
+
+                <div class="socials mt">
+
+                    <a
+                        href="https://www.linkedin.com/in/hamid-ali-awan-6510203a8"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-icon"
+                        aria-label="LinkedIn"
+                    >
+
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                        >
+                            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/>
+                        </svg>
+
+                    </a>
+
+
+                    <a
+                        href="https://github.com/hamidaliawan602-cmd"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-icon"
+                        aria-label="GitHub"
+                    >
+
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                        >
+                            <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1.74.81 1.19 1.84 1.19 3.1 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/>
+                        </svg>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Contact Form -->
+
+            <form
+                id="contactForm"
+                class="contact-panel reveal"
+                autocomplete="off"
+                novalidate
             >
-              <path d="M22 2L11 13"/>
-              <path d="M22 2l-7 20-4-9-9-4 20-7z"/>
-            </svg>
 
-            Send Message
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                    maxlength="100"
+                    class="form-input"
+                >
 
-          </button>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    required
+                    maxlength="255"
+                    class="form-input"
+                >
 
 
-          <div
-            id="formStatus"
-            class="form-status"
-          ></div>
+                <input
+                    type="text"
+                    name="subject"
+                    placeholder="Subject"
+                    required
+                    maxlength="200"
+                    class="form-input"
+                >
 
-        </form>
 
-      </div>
+                <textarea
+                    name="message"
+                    placeholder="Your Message"
+                    rows="5"
+                    required
+                    maxlength="2000"
+                    class="form-input"
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                    class="btn-glow full"
+                >
+
+                    <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M22 2L11 13"/>
+                        <path d="M22 2l-7 20-4-9-9-4 20-7z"/>
+                    </svg>
+
+                    Send Message
+
+                </button>
+
+
+                <div
+                    id="formStatus"
+                    class="form-status"
+                    role="status"
+                    aria-live="polite"
+                ></div>
+
+            </form>
+
+        </div>
 
     </div>
 
-  </section>
+</section>
+
+</main>
 
 
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
-
-  <footer class="footer">
+<footer class="footer">
 
     <div class="container footer-inner">
 
-      <p class="muted xs">
+        <p class="muted xs">
 
-        <span class="gradient-text animated">
-          © 2026 Hamid Ali Awan. All rights reserved
-        </span>
+            <span class="gradient-text animated">
 
-      </p>
+                © 2026 Hamid Ali Awan.
+                All rights reserved.
+
+            </span>
+
+        </p>
 
     </div>
 
-  </footer>
+</footer>
 
 
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
-  <!-- Main JavaScript -->
-
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script
+    src="{{ url_for('static', filename='js/main.js') }}"
+    defer
+></script>
 
 </body>
 </html>

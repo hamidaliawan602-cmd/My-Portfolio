@@ -63,7 +63,11 @@ app.config["SECRET_KEY"] = os.environ.get(
 
 app.config["SESSION_COOKIE_HTTPONLY"] = True
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
-app.config["SESSION_COOKIE_SECURE"] = os.environ.get("VERCEL") == "1"
+
+# Vercel normally provides VERCEL=1
+app.config["SESSION_COOKIE_SECURE"] = (
+    os.environ.get("VERCEL") == "1"
+)
 
 
 # ============================================================
@@ -516,7 +520,6 @@ def index():
     """
     Portfolio home page.
 
-    IMPORTANT:
     Projects are loaded directly from Supabase.
     Therefore, projects added/edited/deleted
     from the admin panel automatically appear here.
@@ -581,7 +584,10 @@ def contact():
         data.get("message") or ""
     ).strip()
 
+    # --------------------------------------------------------
     # Required fields
+    # --------------------------------------------------------
+
     if not name or not email or not message:
 
         return jsonify({
@@ -592,7 +598,10 @@ def contact():
             )
         }), 400
 
+    # --------------------------------------------------------
     # Maximum lengths
+    # --------------------------------------------------------
+
     if (
         len(name) > 100
         or len(email) > 255
@@ -607,6 +616,10 @@ def contact():
                 "the maximum allowed length."
             )
         }), 400
+
+    # --------------------------------------------------------
+    # Save message
+    # --------------------------------------------------------
 
     try:
 
@@ -678,6 +691,10 @@ def admin_login():
             request.form.get("password") or ""
         )
 
+        # ----------------------------------------------------
+        # Password configuration check
+        # ----------------------------------------------------
+
         if not ADMIN_PASSWORD:
 
             flash(
@@ -686,6 +703,10 @@ def admin_login():
                 "environment variables.",
                 "error"
             )
+
+        # ----------------------------------------------------
+        # Login validation
+        # ----------------------------------------------------
 
         elif (
             secrets.compare_digest(
@@ -698,6 +719,9 @@ def admin_login():
                 ADMIN_PASSWORD
             )
         ):
+
+            # Clear old session before creating
+            # authenticated session.
 
             session.clear()
 
@@ -750,8 +774,23 @@ def admin_logout():
 @admin_required
 def admin_dashboard():
 
-    messages = get_messages()
-    projects = get_projects()
+    try:
+        messages = get_messages()
+        projects = get_projects()
+
+    except Exception:
+
+        app.logger.exception(
+            "Could not load admin dashboard data"
+        )
+
+        messages = []
+        projects = []
+
+        flash(
+            "Could not load some dashboard data.",
+            "error"
+        )
 
     unread = sum(
         1
@@ -775,9 +814,25 @@ def admin_dashboard():
 @admin_required
 def admin_messages():
 
+    try:
+        messages = get_messages()
+
+    except Exception:
+
+        app.logger.exception(
+            "Could not load messages"
+        )
+
+        messages = []
+
+        flash(
+            "Could not load messages.",
+            "error"
+        )
+
     return render_template(
         "admin/messages.html",
-        messages=get_messages()
+        messages=messages
     )
 
 
@@ -873,7 +928,16 @@ def admin_message_new():
 @admin_required
 def admin_message_edit(message_id):
 
-    message = get_message(message_id)
+    try:
+        message = get_message(message_id)
+
+    except Exception:
+
+        app.logger.exception(
+            "Could not load message"
+        )
+
+        return "Could not load message", 500
 
     if not message:
         return "Message not found", 404
@@ -1062,9 +1126,25 @@ def admin_message_delete(message_id):
 @admin_required
 def admin_projects():
 
+    try:
+        projects = get_projects()
+
+    except Exception:
+
+        app.logger.exception(
+            "Could not load projects"
+        )
+
+        projects = []
+
+        flash(
+            "Could not load projects.",
+            "error"
+        )
+
     return render_template(
         "admin/projects.html",
-        projects=get_projects()
+        projects=projects
     )
 
 
@@ -1147,7 +1227,16 @@ def admin_project_new():
 @admin_required
 def admin_project_edit(project_id):
 
-    project = get_project(project_id)
+    try:
+        project = get_project(project_id)
+
+    except Exception:
+
+        app.logger.exception(
+            "Could not load project"
+        )
+
+        return "Could not load project", 500
 
     if not project:
         return "Project not found", 404
