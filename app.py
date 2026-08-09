@@ -16,7 +16,6 @@ from functools import wraps
 
 import requests
 from dotenv import load_dotenv
-import os
 
 # Load .env explicitly from the same folder as app.py
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -35,7 +34,6 @@ app.config["SESSION_COOKIE_HTTPONLY"] = True
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
 app.config["SESSION_COOKIE_SECURE"] = os.environ.get("VERCEL") == "1"
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_FILE = os.path.join(BASE_DIR, "portfolio.db")
 CV_FOLDER = os.path.join(BASE_DIR, "static", "cv")
 
