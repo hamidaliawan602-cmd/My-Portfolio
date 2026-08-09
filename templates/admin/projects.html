@@ -1,0 +1,23 @@
+{% extends "admin/base.html" %}
+{% block title %}Projects{% endblock %}
+{% block heading %}Projects{% endblock %}
+{% block content %}
+<div class="toolbar"><p class="muted">{{ projects|length }} project(s)</p><a class="button" href="{{ url_for('admin_project_new') }}">+ Add Project</a></div>
+<div class="project-admin-grid">
+{% for p in projects %}
+<article class="project-admin-card">
+  {% if p.image_url %}<img src="{{ p.image_url }}" alt="{{ p.title }}">{% else %}<div class="project-placeholder">PROJECT</div>{% endif %}
+  <div class="card-body">
+    <div class="project-order">#{{ p.sort_order }}</div>
+    <h2>{{ p.title }}</h2>
+    <p>{{ p.description }}</p>
+    <small>{{ p.tags }}</small>
+    <div class="actions">
+      <a class="button small" href="{{ url_for('admin_project_edit', project_id=p.id) }}">Edit</a>
+      <form method="post" action="{{ url_for('admin_project_delete', project_id=p.id) }}" onsubmit="return confirm('Delete this project?')"><input type="hidden" name="_csrf" value="{{ csrf_token }}"><button class="danger small" type="submit">Delete</button></form>
+    </div>
+  </div>
+</article>
+{% else %}<div class="panel empty">No projects yet.</div>{% endfor %}
+</div>
+{% endblock %}

@@ -1,6 +1,8 @@
 .env
-portfolio.db
+.env.*
+!.env.example
+
+venv/
 __pycache__/
 *.pyc
-venv/
-.venv/
+portfolio.db
