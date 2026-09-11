@@ -6,3 +6,4 @@ venv/
 __pycache__/
 *.pyc
 portfolio.db
+static/images/heart_disease.jpg
